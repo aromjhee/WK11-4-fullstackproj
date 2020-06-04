@@ -1,5 +1,5 @@
 const express = require('express');
-const csurf = require('csurf');
+const csrf = require('csurf');
 
 const db = require('./db/models');
 
@@ -26,7 +26,7 @@ router.get('/book/add', csrfProtection, (req, res) => {
   });
 });
 
-router.post('/book/add', csrfProtection, asyncHandler( async(req, res) => {
+router.post('/book/add', csrfProtection, asyncHandler(async (req, res) => {
   const {
     title,
     author,
@@ -45,7 +45,7 @@ router.post('/book/add', csrfProtection, asyncHandler( async(req, res) => {
 
   try {
     await book.save();
-    res.redirect('/')
+    res.redirect('/');
   } catch (err) {
     res.render('book-add', {
       title: 'Add Book',
@@ -54,7 +54,6 @@ router.post('/book/add', csrfProtection, asyncHandler( async(req, res) => {
       csrfToken: req.csrfToken(),
     });
   }
-
 }));
 
 
