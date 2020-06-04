@@ -1,3 +1,10 @@
+const {
+  username,
+  password,
+  database,
+  host,
+} = require('./index').db;
+
 {
   "development": {
     "username": "root",
@@ -24,3 +31,13 @@
     "operatorsAliases": false
   }
 }
+
+module.exports = {
+  development: {
+    username,
+    password,
+    database,
+    host,
+    dialect: 'postgres',
+  },
+};
