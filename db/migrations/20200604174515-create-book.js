@@ -9,19 +9,24 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       title: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       author: {
-        type: Sequelize.STRING
+        allowNull: false,
+        type: Sequelize.STRING(100)
       },
       releaseDate: {
+        allowNull: false,
         type: Sequelize.DATEONLY
       },
       pageCount: {
+        allowNull: false,
         type: Sequelize.INTEGER
       },
       publisher: {
-        type: Sequelize.STRING
+        allowNull: false,
+        type: Sequelize.STRING(100)
       },
       createdAt: {
         allowNull: false,
