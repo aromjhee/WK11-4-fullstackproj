@@ -1,12 +1,9 @@
 extends layout.pug
 
+include utils.pug
+
 block content
-  if errors
-    div(class='alert alert-danger' role='alert')
-      p The following error(s) occurred:
-      ul
-        each error in errors
-          li= error
+  +validationErrorSummary(errors)
   form(action='/book/add' method='post')
     include book-form-fields.pug
     div(class='py-4')
